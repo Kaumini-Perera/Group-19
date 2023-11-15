@@ -1,5 +1,5 @@
 """
-WSGI config for vehicle_reting_system project.
+WSGI config for vehicle_renting_system project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'vehicle_reting_system.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'vehicle_renting_system.settings')
 
 application = get_wsgi_application()
