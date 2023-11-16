@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'Manager.apps.ManagerConfig',
     'CustomerHome.apps.CustomerhomeConfig',
     'Vehicles.apps.VehiclesConfig',
+    'RentVehicle.apps.RentvehicleConfig',
 ]
 
 MIDDLEWARE = [
