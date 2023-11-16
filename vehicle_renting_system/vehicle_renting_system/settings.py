@@ -38,19 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-<<<<<<< Updated upstream
-    'Owner.apps.OwnerConfig',
-    'Manager.apps.ManagerConfig'
-=======
-<<<<<<< Updated upstream
-=======
     'Owner.apps.OwnerConfig',
     'Manager.apps.ManagerConfig',
     'CustomerHome.apps.CustomerhomeConfig',
-    'RentVehicle.apps.RentvehicleConfig',
-    'Vehicles.apps.VehiclesConfig'
->>>>>>> Stashed changes
->>>>>>> Stashed changes
+
 ]
 
 MIDDLEWARE = [
