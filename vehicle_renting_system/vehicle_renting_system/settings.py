@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'Owner.apps.OwnerConfig',
     'Manager.apps.ManagerConfig',
     'CustomerHome.apps.CustomerhomeConfig',
-
+    'Vehicles.apps.VehiclesConfig',
 ]
 
 MIDDLEWARE = [
