@@ -30,3 +30,36 @@ def register_manager(request):
     owner = Owner.objects.get(Owner_email=owner_email)
     no_of_pending_request=count_pending_rent_request()
     return render(request,'register_manager.html',{'owner':owner,'no_of_pending_request':no_of_pending_request})
+
+
+def ManagerRegistration(request):
+    Manager_firstname = request.POST.get('Manager_firstname', '')
+    Manager_lastname = request.POST.get('Manager_lastname', '')
+    Manager_dob = request.POST.get('Manager_dob', '')
+    Manager_gender = request.POST.get('Manager_gender', '')
+    Manager_mobileno = request.POST.get('Manager_mobileno', '')
+    Manager_email = request.POST.get('Manager_email', '')
+    Manager_password = request.POST.get('Manager_password', '')
+    Manager_address = request.POST.get('Manager_address', '')
+    Manager_city = request.POST.get('Manager_city', '')
+    Manager_state = request.POST.get('Manager_state', '')
+    Manager_country = request.POST.get('Manager_country', '')
+    Manager_pincode = request.POST.get('Manager_pincode', '')
+    Manager_license = request.FILES['Manager_license']
+
+    result_customer = Customer.objects.filter(customer_email=Manager_email)
+    result_owner = Owner.objects.filter(Owner_email=Manager_email)
+    result_manager = Manager.objects.filter(Manager_email=Manager_email)
+    if result_customer.exists() or result_owner.exists() or result_manager.exists():
+        Message = "This Email address already exist!!"
+        return render(request, 'register_manager.html', {'Message': Message})
+    else:
+        manager = Manager(Manager_firstname=Manager_firstname, Manager_lastname=Manager_lastname,
+                          Manager_dob=Manager_dob, Manager_gender=Manager_gender, Manager_mobileno=Manager_mobileno,
+                          Manager_email=Manager_email, Manager_password=Manager_password,
+                          Manager_address=Manager_address,
+                          Manager_city=Manager_city, Manager_state=Manager_state, Manager_country=Manager_country,
+                          Manager_pincode=Manager_pincode, Manager_license=Manager_license)
+
+        manager.save()
+        return redirect('/Owner/AllManagers')
