@@ -47,6 +47,9 @@ def index(request):
         return render(request,'index.html',{'Message':Message,'vehicle':vehicle})
     return render(request,'index.html',{'vehicle':vehicle})
 
+def register(request):
+    return render(request,'register.html')
+
 def RegisterCustomer(request):
     global isLogin
 
@@ -82,3 +85,32 @@ def RegisterCustomer(request):
         request.session['user_email'] = customer_email
         isLogin = True
         return redirect('/Home/')
+    
+def signin(request):
+    return render(request,'SignIn.html')
+
+def LoginAuthentication(request):
+    global isLogin
+    login_email=request.POST.get('login_email','')
+    login_password=request.POST.get('login_password','')
+    # customer = Customer.objects.all()
+
+    result_customer = Customer.objects.filter(customer_email=login_email,customer_password=login_password)
+    result_owner = Owner.objects.filter(Owner_email=login_email,Owner_password=login_password)
+    result_manager = Manager.objects.filter(Manager_email=login_email,Manager_password=login_password)
+
+    if result_customer.exists():
+        request.session['user_email'] = login_email
+        isLogin = True
+        return redirect('/Home/')
+    elif result_owner.exists():
+        request.session['user_email'] = login_email
+        isLogin = True
+        return redirect('/Owner/')
+    elif result_manager.exists():
+        request.session['user_email'] = login_email
+        isLogin = True
+        return redirect('/Manager/')
+    else:
+        Message = "Invalid Email or password!!"
+        return render(request,'SignIn.html',{'Message':Message})
