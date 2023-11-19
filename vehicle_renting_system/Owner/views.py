@@ -84,3 +84,12 @@ def Manager_Profile(request,Manager_email):
     manager = Manager.objects.get(Manager_email=Manager_email)
     no_of_pending_request=count_pending_rent_request()
     return render(request,'Owner_Manager_Profile.html',{'owner':owner,'manager':manager,'no_of_pending_request':no_of_pending_request})
+
+def Customer_Profile(request,customer_email):
+    if('user_email' not in request.session):
+        return redirect('/signin/')
+    owner_email = request.session.get('user_email')
+    owner = Owner.objects.get(Owner_email=owner_email)
+    customer = Customer.objects.get(customer_email=customer_email)
+    no_of_pending_request=count_pending_rent_request()
+    return render(request,'Owner_Customer_Profile.html',{'owner':owner,'customer':customer,'no_of_pending_request':no_of_pending_request})
