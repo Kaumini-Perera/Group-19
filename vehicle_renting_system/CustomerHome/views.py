@@ -114,3 +114,26 @@ def LoginAuthentication(request):
     else:
         Message = "Invalid Email or password!!"
         return render(request,'SignIn.html',{'Message':Message})
+    
+def Logout(request):
+    global isLogout
+    del request.session['user_email']
+    isLogout = True
+    Message = "Successfully Logged Out!!"
+    return redirect('/')
+
+def Home(request):
+    if('user_email' not in request.session):
+        return redirect('/signin/')
+    customer_email = request.session.get('user_email')
+    customer = Customer.objects.get(customer_email=customer_email)
+    vehicle = Vehicle.objects.all()
+    Message="Welcome Aboard!!"
+    return render(request,'Home.html',{'vehicle':vehicle,'Message':Message,'customer':customer})
+
+def Profile(request):
+    if('user_email' not in request.session):
+        return redirect('/signin/')
+    customer_email = request.session.get('user_email')
+    customer = Customer.objects.get(customer_email=customer_email)
+    return render(request,'Profile.html',{'customer':customer})
