@@ -104,3 +104,12 @@ def upload_Vehicle(request):
     owner = Owner.objects.get(Owner_email=owner_email)
     no_of_pending_request=count_pending_rent_request()
     return render(request,"Owner_Upload_Vehicle.html",{'owner':owner,'no_of_pending_request':no_of_pending_request})
+
+def AllVehicles(request):
+    if('user_email' not in request.session):
+        return redirect('/signin/')
+    owner_email = request.session.get('user_email')
+    owner = Owner.objects.get(Owner_email=owner_email)
+    vehicle = Vehicle.objects.all()
+    no_of_pending_request=count_pending_rent_request()
+    return render(request,"Owner_all_vehicles.html",{'vehicle':vehicle,'owner':owner,'no_of_pending_request':no_of_pending_request})
