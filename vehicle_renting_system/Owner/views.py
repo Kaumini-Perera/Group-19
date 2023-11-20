@@ -334,3 +334,29 @@ def Vehicle_type_chart():
     fig.savefig(flike)
     v_type = base64.b64encode(flike.getvalue()).decode()
     return v_type
+
+
+def Vehicle_no_of_rent_request():
+    veh_dict = {}
+    rentvehicle = RentVehicle.objects.all()
+    for rv in rentvehicle:
+        if rv.Vehicle_license_plate not in veh_dict.keys():
+            veh_dict[rv.Vehicle_license_plate] = 1
+        else:
+            veh_dict[rv.Vehicle_license_plate] += 1
+    v_license_plate = list(veh_dict.keys())
+    v_no_of_rent_request = list(veh_dict.values())
+    fig = plt.figure(figsize=(12, 6))
+
+
+    plt.bar(v_license_plate, v_no_of_rent_request, color='maroon',
+            width=0.4)
+    plt.xticks(v_license_plate, v_license_plate, rotation=10, horizontalalignment='right')
+    plt.xlabel("Vehicle License Plate")
+    plt.ylabel("No. of Rent Requests")
+    plt.show()
+    flike = io.BytesIO()
+    fig.savefig(flike)
+    v_no_of_rent_request = base64.b64encode(flike.getvalue()).decode()
+    return v_no_of_rent_request
+
