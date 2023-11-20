@@ -305,3 +305,32 @@ def customer_no_of_rent_request():
     return cust_no_of_rent_request
 
 
+def Vehicle_type_chart():
+    vehicle = Vehicle.objects.all()
+    fig = plt.figure(figsize =(10, 7))
+    bicycle, bike, bus, car, scooter, tourist_van, truck, other = 0, 0, 0, 0, 0, 0, 0, 0
+    for v in vehicle:
+        if v.Vehicle_type == 'Bicycle':
+            bicycle += 1
+        elif v.Vehicle_type == 'Bike':
+            bike += 1
+        elif v.Vehicle_type == 'Bus':
+            bus += 1
+        elif v.Vehicle_type == 'Car':
+            car += 1
+        elif v.Vehicle_type == 'Scooter':
+            scooter += 1
+        elif v.Vehicle_type == 'Tourist Van':
+            tourist_van += 1
+        elif v.Vehicle_type == 'Truck':
+            truck += 1
+        else:
+            other += 1
+    type = ['Bicycle','Bike', 'Bus', 'Car', 'Scooter', 'Tourist Van', 'Truck', 'Other']
+    data = [bicycle, bike, bus, car, scooter, tourist_van, truck, other]
+
+    plt.pie(data, labels = type, autopct='%1.1f%%', startangle=90)
+    flike = io.BytesIO()
+    fig.savefig(flike)
+    v_type = base64.b64encode(flike.getvalue()).decode()
+    return v_type
