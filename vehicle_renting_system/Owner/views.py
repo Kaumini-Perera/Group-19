@@ -188,3 +188,16 @@ def CheckAvailability(request, Vehicle_license_plate):
     return render(request, 'Owner_showdetails.html', {'Available': Available, 'vehicle': vehicle, \
                                                       'owner': owner, 'rent_data': rent_data,
                                                       'no_of_pending_request': no_of_pending_request})
+
+def RentRequest(request):
+    if('user_email' not in request.session):
+        return redirect('/signin/')
+
+    owner_email = request.session.get('user_email')
+    owner = Owner.objects.get(Owner_email=owner_email)
+
+    rentvehicle = RentVehicle.objects.all()
+    no_of_pending_request=count_pending_rent_request()
+    return render(request,'Owner_RentRequest.html',{'owner':owner,'rentvehicle':rentvehicle,\
+                                                    'no_of_pending_request':no_of_pending_request})
+
