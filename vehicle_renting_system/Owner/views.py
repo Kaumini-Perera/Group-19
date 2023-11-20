@@ -6,7 +6,14 @@ from CustomerHome.models import Customer
 from Vehicles.models import Vehicle
 from RentVehicle.models import RentVehicle
 
-
+from datetime import datetime
+from datetime import date
+import os
+from vehicle_mytrial.settings import MEDIA_ROOT
+import matplotlib
+from matplotlib import pyplot as plt
+matplotlib.use('Agg')
+import io, base64
 
 
 
