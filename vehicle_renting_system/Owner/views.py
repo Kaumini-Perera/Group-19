@@ -281,3 +281,27 @@ def customer_gender_chart():
     return cust_gender
 
 
+def customer_no_of_rent_request():
+    cust_dict = {}
+    rentvehicle = RentVehicle.objects.all()
+    for rv in rentvehicle:
+        if rv.customer_email not in cust_dict.keys():
+            cust_dict[rv.customer_email] = 1
+        else:
+            cust_dict[rv.customer_email] += 1
+    cust_email = list(cust_dict.keys())
+    cust_no_of_rent_request = list(cust_dict.values())
+    fig = plt.figure(figsize=(12, 6))
+
+    plt.bar(cust_email, cust_no_of_rent_request, color='green',
+            width=0.4)
+    plt.xticks(cust_email, cust_email, rotation=10, horizontalalignment='right')
+    plt.xlabel("Customer Email")
+    plt.ylabel("No. of Rent Requests")
+    plt.show()
+    flike = io.BytesIO()
+    fig.savefig(flike)
+    cust_no_of_rent_request = base64.b64encode(flike.getvalue()).decode()
+    return cust_no_of_rent_request
+
+
