@@ -250,3 +250,12 @@ def DeleteVehicle(request):
 
     return redirect('/Owner/AllVehicles/')
 
+def count_pending_rent_request():
+    no_of_pending_request=0
+    rentvehicle = RentVehicle.objects.all()
+    for rv in rentvehicle:
+        if rv.request_status == "Pending":
+            no_of_pending_request+=1
+    return no_of_pending_request
+
+
