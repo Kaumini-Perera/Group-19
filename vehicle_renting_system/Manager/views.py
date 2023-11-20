@@ -28,3 +28,48 @@ def Profile(request):
     manager = Manager.objects.get(Manager_email=manager_email)
     no_of_pending_request=count_pending_rent_request()
     return render(request,'Manager_Profile.html',{'manager':manager,'no_of_pending_request':no_of_pending_request})
+
+def AllCustomers(request):
+    if('user_email' not in request.session):
+        return redirect('/signin/')
+    manager_email = request.session.get('user_email')
+    manager = Manager.objects.get(Manager_email=manager_email)
+    customer = Customer.objects.all()
+    no_of_pending_request=count_pending_rent_request()
+    return render(request,"Manager_All_Customers.html",{'customer':customer,'manager':manager,'no_of_pending_request':no_of_pending_request})
+
+def Customer_Profile(request,customer_email):
+    if('user_email' not in request.session):
+        return redirect('/signin/')
+    manager_email = request.session.get('user_email')
+    manager = Manager.objects.get(Manager_email=manager_email)
+    customer = Customer.objects.get(customer_email=customer_email)
+    no_of_pending_request=count_pending_rent_request()
+    return render(request,'Manager_Customer_Profile.html',{'manager':manager,'customer':customer,'no_of_pending_request':no_of_pending_request})
+
+def upload_Vehicle(request):
+    if('user_email' not in request.session):
+        return redirect('/signin/')
+    manager_email = request.session.get('user_email')
+    manager = Manager.objects.get(Manager_email=manager_email)
+    no_of_pending_request=count_pending_rent_request()
+    return render(request,"Manager_Upload_Vehicle.html",{'manager':manager,'no_of_pending_request':no_of_pending_request})
+
+def AllVehicles(request):
+    if('user_email' not in request.session):
+        return redirect('/signin/')
+    manager_email = request.session.get('user_email')
+    manager = Manager.objects.get(Manager_email=manager_email)
+    vehicle = Vehicle.objects.all()
+    no_of_pending_request=count_pending_rent_request()
+    return render(request,"Manager_all_vehicles.html",{'vehicle':vehicle,'manager':manager,'no_of_pending_request':no_of_pending_request})
+
+def showdetails(request,Vehicle_license_plate):
+    if('user_email' not in request.session):
+        return redirect('/signin/')
+    vehicle = Vehicle.objects.get(Vehicle_license_plate=Vehicle_license_plate)
+    manager_email = request.session.get('user_email')
+    manager = Manager.objects.get(Manager_email=manager_email)
+    no_of_pending_request=count_pending_rent_request()
+    return render(request,'Manager_showdetails.html',{'vehicle':vehicle,'manager':manager,'no_of_pending_request':no_of_pending_request})
+
