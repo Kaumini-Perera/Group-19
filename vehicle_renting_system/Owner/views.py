@@ -230,3 +230,23 @@ def DeleteManager(request):
 
     return redirect('/Owner/AllManagers/')
 
+
+def DeleteVehicle(request):
+    if ('user_email' not in request.session):
+        return redirect('/signin/')
+
+    Vehicle_license_plate = request.GET.get('Vehicle_license_plate', '')
+    vehicle = Vehicle.objects.get(Vehicle_license_plate=Vehicle_license_plate)
+
+    path1 = MEDIA_ROOT + str(vehicle.Vehicle_image1)
+    path2 = MEDIA_ROOT + str(vehicle.Vehicle_image2)
+    path3 = MEDIA_ROOT + str(vehicle.Vehicle_image3)
+
+    os.remove(path1)
+    os.remove(path2)
+    os.remove(path3)
+
+    vehicle.delete()
+
+    return redirect('/Owner/AllVehicles/')
+
