@@ -360,3 +360,20 @@ def Vehicle_no_of_rent_request():
     v_no_of_rent_request = base64.b64encode(flike.getvalue()).decode()
     return v_no_of_rent_request
 
+
+def ViewAnalysis(request):
+    if ('user_email' not in request.session):
+        return redirect('/signin/')
+
+    owner_email = request.session.get('user_email')
+    owner = Owner.objects.get(Owner_email=owner_email)
+
+    no_of_pending_request = count_pending_rent_request()
+    cust_gender = customer_gender_chart()
+    cust_no_of_rent_request = customer_no_of_rent_request()
+    v_type = Vehicle_type_chart
+    v_no_of_rent_request = Vehicle_no_of_rent_request()
+
+    return render(request, 'Analysis.html', {'owner': owner, 'no_of_pending_request': no_of_pending_request, \
+                                             'cust_gender': cust_gender, 'cust_rent_request': cust_no_of_rent_request, \
+                                             'v_type': v_type, 'v_rent_request': v_no_of_rent_request})
