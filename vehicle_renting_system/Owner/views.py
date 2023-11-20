@@ -258,4 +258,26 @@ def count_pending_rent_request():
             no_of_pending_request+=1
     return no_of_pending_request
 
+def customer_gender_chart():
+    customer = Customer.objects.all()
+    fig = plt.figure(figsize =(10, 7))
+    male_counter = 0
+    female_counter = 0
+    other = 0
+    for cust in customer:
+        if cust.customer_gender == 'Male':
+            male_counter += 1
+        elif cust.customer_gender == 'Female':
+            female_counter += 1
+        else:
+            other += 1
+    gender = ['Male','Female', 'Other']
+    data = [male_counter, female_counter, other]
+
+    plt.pie(data, labels = gender, autopct='%1.1f%%', startangle=90)
+    flike = io.BytesIO()
+    fig.savefig(flike)
+    cust_gender = base64.b64encode(flike.getvalue()).decode()
+    return cust_gender
+
 
