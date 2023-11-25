@@ -209,3 +209,12 @@ def SentRequests(request):
     else:
         Message = "You haven't rented any vehicle yet!!"
         return render(request,'SentRequests.html',{'customer':customer,'rentvehicle':rentvehicle,'Message':Message})
+
+def about_us(request):
+    return HttpResponse('About Us')
+    
+def contact_us(request):
+    return HttpResponse('Contact Us')
+
+def search(request):
+    return HttpResponse('search')
