@@ -1,5 +1,5 @@
 """
-URL configuration for vehicle_reting_system project.
+URL configuration for vehicle_renting_system project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.2/topics/http/urls/
@@ -15,8 +15,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import include, path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('CustomerHome.urls')),
+    path('OwnerHome/',include('Owner.urls')),
+    path('ManagerHome/',include('Manager.urls')),
+    path('RentVehicle/',include('RentVehicle.urls')),
+    path('Vehicles/',include('Vehicles.urls'))
 ]

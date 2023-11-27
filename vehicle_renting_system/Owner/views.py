@@ -9,13 +9,12 @@ from RentVehicle.models import RentVehicle
 from datetime import datetime
 from datetime import date
 import os
+
 from vehicle_renting_system.settings import MEDIA_ROOT
 import matplotlib
 from matplotlib import pyplot as plt
 matplotlib.use('Agg')
 import io, base64
-
-
 
 # Create your views here.
 def index(request):
@@ -43,7 +42,6 @@ def register_manager(request):
     owner = Owner.objects.get(Owner_email=owner_email)
     no_of_pending_request=count_pending_rent_request()
     return render(request,'register_manager.html',{'owner':owner,'no_of_pending_request':no_of_pending_request})
-
 
 def ManagerRegistration(request):
     Manager_firstname = request.POST.get('Manager_firstname', '')
@@ -76,7 +74,7 @@ def ManagerRegistration(request):
 
         manager.save()
         return redirect('/Owner/AllManagers')
-    
+  
 def AllManagers(request):
     if('user_email' not in request.session):
         return redirect('/signin/')
@@ -85,7 +83,6 @@ def AllManagers(request):
     manager = Manager.objects.all()
     no_of_pending_request=count_pending_rent_request()
     return render(request,"All_Managers.html",{'manager':manager,'owner':owner,'no_of_pending_request':no_of_pending_request})
-
 
 def AllCustomers(request):
     if('user_email' not in request.session):
@@ -393,4 +390,8 @@ def ViewAnalysis(request):
 
     return render(request, 'Analysis.html', {'owner': owner, 'no_of_pending_request': no_of_pending_request, \
                                              'cust_gender': cust_gender, 'cust_rent_request': cust_no_of_rent_request, \
+
                                              'v_type': v_type, 'v_rent_request': v_no_of_rent_request})
+
+                                             'v_type': v_type, 'v_rent_request': v_no_of_rent_request})
+
