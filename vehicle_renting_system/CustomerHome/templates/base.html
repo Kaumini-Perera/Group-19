@@ -23,26 +23,58 @@
 </head>
 
 <body>
-    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark" style="font-size: larger;" aria-label="" aria-labbelledby="">
-        <a href="\"><img class="navbar-brand" src="{% static 'img/Logos/final_logo.png' %}" height="75"></a>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="font-size: larger; background: rgba(0, 0, 0, 0.4) url('{% static 'img\bg\bg1.png' %}' ) center center / cover no-repeat; width: 100%; min-height: 300px;">
+        <a href="\"><img class="navbar-brand" src="{% static 'img/Logos/final_logo.png' %}" height="100"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
+           
+    
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="/" style="color: #f1f1f1;">Home</a>
+                    <a class="nav-link" href="/" style="color: #060606;"><b>Home</b></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#" style="color: #f1f1f1;">Link</a>
+            
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="Vehicles/" id="vehiclesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #060606;"><b>Vehicles</b></a>
+                        <div class="dropdown-menu" aria-labelledby="vehiclesDropdown">
+                            <a class="dropdown-item" href="#">Car</a>
+                            <a class="dropdown-item" href="#">Bike</a>
+                            <a class="dropdown-item" href="#">Bus</a>
+                            <a class="dropdown-item" href="#">Van</a>
+                            <a class="dropdown-item" href="#">Bicycle</a>
+                            <a class="dropdown-item" href="#">Three-wheel</a>
+                        </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="CompanyDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #060606;"><b>Company</b></a>
+                        <div class="dropdown-menu" aria-labelledby="CompanyDropdown">
+                            <a class="dropdown-item" href="#">Maruti</a>
+                            <a class="dropdown-item" href="#">Audi</a>
+                            <a class="dropdown-item" href="#">Toyota</a>
+                            <a class="dropdown-item" href="#">Tata</a>
+                            <a class="dropdown-item" href="#">Leyland</a>
+                            <a class="dropdown-item" href="#">Rosa</a>
+                            <a class="dropdown-item" href="#">KDH</a>
+                            <a class="dropdown-item" href="#">Kia</a>
+                            <a class="dropdown-item" href="#">Yamaha</a>
+                        </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="PriceDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #060606;"><b>Price Range</b></a>
+                        <div class="dropdown-menu" aria-labelledby="PriceDropdown">
+                            <a class="dropdown-item" href="#">Below Rs.5000</a>
+                            <a class="dropdown-item" href="#">Between Rs.5000 and Rs.10000</a>
+                            <a class="dropdown-item" href="#">Above Rs.10000</a>
+                        </div>
                 </li>
             </ul>
 
             <ul class="navbar-nav justify-content-end">
                 <li class="nav-item">
-                    <a class="nav-link" href="signin" style="color: #f1f1f1;">Sign
-                        in</a>
+                    <a class="nav-link" href="/signin" style="color: #060606;"> <b> Sign
+                        in </b></a>
                 </li>
             </ul>
 
@@ -53,7 +85,7 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-2" style="height: auto; background-color: #f1f1f1;" id="demo">
+            <div class="col-sm-2 position-fixed" style="height: auto; width: 20%; background-color: #ADDDF4; margin-top: 300px; right:0" id="demo">
                 <div class="row">
                     <div class="col-sm mt-2">
                         <label class="sr-only" for="inlineFormInputGroup">Search</label>
@@ -63,100 +95,6 @@
                                 <button class="btn btn-secondary" type="button"><i class="fa fa-search"></i></button>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm mt-2">
-                        <form>
-                            <strong>Vehicles</strong>
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="Car">
-                                <label class="form-check-label" for="Car">Car</label>
-                            </div>
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="Bike">
-                                <label class="form-check-label" for="Bike">Bike</label>
-                            </div>
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="Bus">
-                                <label class="form-check-label" for="Bus">Bus</label>
-                            </div>
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="Scooter">
-                                <label class="form-check-label" for="Scooter">Scooter</label>
-                            </div>
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="Bicycle">
-                                <label class="form-check-label" for="Bicycle">Bicycle</label>
-                            </div>
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="TouristVan">
-                                <label class="form-check-label" for="TouristVan">Tourist Van</label>
-                            </div>
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="Truck">
-                                <label class="form-check-label" for="Truck">Truck</label>
-                            </div>
-
-
-                            <strong>Company</strong>
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="Maruti">
-                                <label class="form-check-label" for="Maruti">Maruti</label>
-                            </div>
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="Audi">
-                                <label class="form-check-label" for="Audi">Audi</label>
-                            </div>
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="Mercedes">
-                                <label class="form-check-label" for="Mercedes">Mercedes</label>
-                            </div>
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="Toyato">
-                                <label class="form-check-label" for="Toyato">Toyato</label>
-                            </div>
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="Tata">
-                                <label class="form-check-label" for="Tata">Tata</label>
-                            </div>
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="Kia">
-                                <label class="form-check-label" for="Kia">Kia</label>
-                            </div>
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="Tesla">
-                                <label class="form-check-label" for="Tesla">Tesla</label>
-                            </div>
-
-                            <strong>Fuel Type</strong>
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="Petrol">
-                                <label class="form-check-label" for="Petrol">Petrol</label>
-                            </div>
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="Diesel">
-                                <label class="form-check-label" for="Diesel">Diesel</label>
-                            </div>
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="CNG">
-                                <label class="form-check-label" for="CNG">CNG</label>
-                            </div>
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="Electric">
-                                <label class="form-check-label" for="Electric">Electric</label>
-                            </div>
-
-                            <strong>Price Range</strong>
-                            <div class="form-check">
-                                <a href="#" style="color: black;">
-                                    <label class="form-check-label justify-content-end" for="price" style="cursor: pointer;" onMouseOver="this.style.color='tomato'" onMouseOut="this.style.color='black'">Under ₹1000</label>
-                                    <label class="form-check-label justify-content-end" for="price" style="cursor: pointer;" onMouseOver="this.style.color='tomato'" onMouseOut="this.style.color='black'">Under ₹1000 - ₹2000</label>
-                                    <label class="form-check-label justify-content-end" for="price" style="cursor: pointer;" onMouseOver="this.style.color='tomato'" onMouseOut="this.style.color='black'">Above ₹2000</label>
-                                </a>
-                            </div>
-
-                        </form>
                     </div>
                 </div>
             </div>
