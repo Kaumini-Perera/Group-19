@@ -392,6 +392,3 @@ def ViewAnalysis(request):
                                              'cust_gender': cust_gender, 'cust_rent_request': cust_no_of_rent_request, \
 
                                              'v_type': v_type, 'v_rent_request': v_no_of_rent_request})
-
-                                             'v_type': v_type, 'v_rent_request': v_no_of_rent_request})
-
