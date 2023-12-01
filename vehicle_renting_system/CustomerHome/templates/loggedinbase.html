@@ -23,41 +23,43 @@
 </head>
 
 <body>
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="font-size: larger; background: rgba(0, 0, 0, 0.4) url('{% static 'img/bg/bg1.png' %}' ) center center / cover no-repeat; width: 100%; min-height: 300px;">
-        <a href="\"><img class="navbar-brand" src="{% static 'img/Logos/final_logo.png' %}" height="100"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    <div id="navbar-placeholder">
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="font-size: larger; background: rgba(0, 0, 0, 0.4) url('{% static 'img/bg/bg1.png' %}' ) center center / cover no-repeat; width: 100%; min-height: 100px;">
+            <a href="\"><img class="navbar-brand" src="{% static 'img/Logos/final_logo.png' %}" height="100"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/Home" style="color: #090909;"><b>Home</b></a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="/SentRequests" style="color: #f1f1f1;">Sent Requests</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="#" style="color: #f1f1f1;">Previous Rentals</a>
-                </li>
-            </ul>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/Home" style="color: #090909;"><b>Home</b></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/SentRequests" style="color: #f1f1f1;">Sent Requests</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#" style="color: #f1f1f1;">Previous Rentals</a>
+                    </li>
+                </ul>
 
-            <ul class="navbar-nav justify-content-end">
-                <li class="nav-item">
-                    <a class="nav-link" href="/Profile" style="color: #f1f1f1;" title="Your Profile">
-                        Hello! {% block name %}{%endblock%}</a>
-                </li>
-            </ul>
+                <ul class="navbar-nav justify-content-end">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Profile" style="color: #f1f1f1;" title="Your Profile">
+                            Hello! {% block name %}{%endblock%}</a>
+                    </li>
+                </ul>
 
-            <ul class="navbar-nav justify-content-end">
-                <li class="nav-item">
-                    <a class="nav-link" href="/Logout" style="color: #f1f1f1;">
-                        Logout</a>
-                </li>
-            </ul>
+                <ul class="navbar-nav justify-content-end">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Logout" style="color: #f1f1f1;">
+                            Logout</a>
+                    </li>
+                </ul>
 
-        </div>
-    </nav>
+            </div>
+        </nav>
+    </div>
 
     <!-- Side bar -->
 
