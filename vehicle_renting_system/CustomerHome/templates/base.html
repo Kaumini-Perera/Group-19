@@ -28,64 +28,64 @@
 </head>
 
 <body>
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="font-size: larger; background: rgba(0, 0, 0, 0.4) url('{% static 'img\bg\bg1.png' %}' ) center center / cover no-repeat; width: 100%; min-height: 300px;">
-        <a href="\"><img class="navbar-brand" src="{% static 'img/Logos/final_logo.png' %}" height="100"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-           
-    
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/" style="color: #060606;"><b>Home</b></a>
-                </li>
-            
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="Vehicles/" id="vehiclesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #060606;"><b>Vehicles</b></a>
-                        <div class="dropdown-menu" aria-labelledby="vehiclesDropdown">
-                            <a class="dropdown-item" href="#">Car</a>
-                            <a class="dropdown-item" href="#">SUV</a>
-                            <a class="dropdown-item" href="#">Bike</a>
-                            <a class="dropdown-item" href="#">Bus</a>
-                            <a class="dropdown-item" href="#">Van</a>
-                            <a class="dropdown-item" href="#">Bicycle</a>
-                            <a class="dropdown-item" href="#">Three-wheel</a>
-                        </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="CompanyDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #060606;"><b>Company</b></a>
-                        <div class="dropdown-menu" aria-labelledby="CompanyDropdown">
-                            <a class="dropdown-item" href="#">Maruti</a>
-                            <a class="dropdown-item" href="#">Audi</a>
-                            <a class="dropdown-item" href="#">Toyota</a>
-                            <a class="dropdown-item" href="#">Tata</a>
-                            <a class="dropdown-item" href="#">Leyland</a>
-                            <a class="dropdown-item" href="#">Rosa</a>
-                            <a class="dropdown-item" href="#">KDH</a>
-                            <a class="dropdown-item" href="#">Kia</a>
-                            <a class="dropdown-item" href="#">Yamaha</a>
-                        </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="PriceDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #060606;"><b>Price Range</b></a>
-                        <div class="dropdown-menu" aria-labelledby="PriceDropdown">
-                            <a class="dropdown-item" href="#">Below Rs.5000</a>
-                            <a class="dropdown-item" href="#">Between Rs.5000 and Rs.10000</a>
-                            <a class="dropdown-item" href="#">Above Rs.10000</a>
-                        </div>
-                </li>
-            </ul>
+    <div id="navbar-placeholder">
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="position:absolute; font-size: larger; background: rgba(0, 0, 0, 0.4) url('{% static 'img\bg\bg1.png' %}' ) center center / cover no-repeat; width: 100%; min-height: 300px;">
+            <a href="\"><img class="navbar-brand" src="{% static 'img/Logos/final_logo.png' %}" height="100"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+ 
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/" style="color: #060606;"><b>Home</b></a>
+                    </li>
+                
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="Vehicles/" id="vehiclesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #060606;"><b>Vehicles</b></a>
+                            <div class="dropdown-menu" aria-labelledby="vehiclesDropdown">
+                                <a class="dropdown-item" href="#">Car</a>
+                                <a class="dropdown-item" href="#">SUV</a>
+                                <a class="dropdown-item" href="#">Bike</a>
+                                <a class="dropdown-item" href="#">Bus</a>
+                                <a class="dropdown-item" href="#">Van</a>
+                                <a class="dropdown-item" href="#">Bicycle</a>
+                                <a class="dropdown-item" href="#">Three-wheel</a>
+                            </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="CompanyDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #060606;"><b>Company</b></a>
+                            <div class="dropdown-menu" aria-labelledby="CompanyDropdown">
+                                <a class="dropdown-item" href="#">Maruti</a>
+                                <a class="dropdown-item" href="#">Audi</a>
+                                <a class="dropdown-item" href="#">Toyota</a>
+                                <a class="dropdown-item" href="#">Tata</a>
+                                <a class="dropdown-item" href="#">Leyland</a>
+                                <a class="dropdown-item" href="#">Rosa</a>
+                                <a class="dropdown-item" href="#">KDH</a>
+                                <a class="dropdown-item" href="#">Kia</a>
+                                <a class="dropdown-item" href="#">Yamaha</a>
+                            </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="PriceDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #060606;"><b>Price Range</b></a>
+                            <div class="dropdown-menu" aria-labelledby="PriceDropdown">
+                                <a class="dropdown-item" href="#">Below Rs.5000</a>
+                                <a class="dropdown-item" href="#">Between Rs.5000 and Rs.10000</a>
+                                <a class="dropdown-item" href="#">Above Rs.10000</a>
+                            </div>
+                    </li>
+                </ul>
 
-            <ul class="navbar-nav justify-content-end">
-                <li class="nav-item">
-                    <a class="nav-link" href="/signin" style="color: #060606;"> <b> Sign In </b></a>
-                </li>
-            </ul>
+                <ul class="navbar-nav justify-content-end">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signin" style="color: #060606;"> <b> Sign In </b></a>
+                    </li>
+                </ul>
 
-        </div>
-    </nav>
-
+            </div>
+        </nav>
+    </div>
     <!-- Side bar -->
 
     <div class="container-fluid">
