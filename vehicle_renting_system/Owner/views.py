@@ -322,26 +322,26 @@ def customer_no_of_rent_request():
 def Vehicle_type_chart():
     vehicle = Vehicle.objects.all()
     fig = plt.figure(figsize =(10, 7))
-    bicycle, bike, bus, car, scooter, tourist_van, truck, other = 0, 0, 0, 0, 0, 0, 0, 0
+    van, bike, bus, car, SUV, three_wheel, truck, other = 0, 0, 0, 0, 0, 0, 0, 0
     for v in vehicle:
-        if v.Vehicle_type == 'Bicycle':
-            bicycle += 1
+        if v.Vehicle_type == 'Car':
+            car += 1
         elif v.Vehicle_type == 'Bike':
             bike += 1
         elif v.Vehicle_type == 'Bus':
             bus += 1
-        elif v.Vehicle_type == 'Car':
-            car += 1
-        elif v.Vehicle_type == 'Scooter':
-            scooter += 1
-        elif v.Vehicle_type == 'Tourist Van':
-            tourist_van += 1
+        elif v.Vehicle_type == 'SUV':
+            SUV += 1
+        elif v.Vehicle_type == 'Van':
+            van += 1
+        elif v.Vehicle_type == 'Three-wheel':
+            three_wheel += 1
         elif v.Vehicle_type == 'Truck':
             truck += 1
         else:
             other += 1
-    type = ['Bicycle','Bike', 'Bus', 'Car', 'Scooter', 'Tourist Van', 'Truck', 'Other']
-    data = [bicycle, bike, bus, car, scooter, tourist_van, truck, other]
+    type = ['Car', 'Bike', 'Bus', 'SUV', 'Van', 'Three-wheel', 'Truck', 'Other']
+    data = [car, bike, bus, SUV, van, three_wheel, truck, other]
 
     plt.pie(data, labels = type, autopct='%1.1f%%', startangle=90)
     flike = io.BytesIO()
