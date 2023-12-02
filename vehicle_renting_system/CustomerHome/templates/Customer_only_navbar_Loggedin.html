@@ -29,7 +29,7 @@
 </head>
 
 <body>
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="position:absolute; font-size: larger; background: rgba(0, 0, 0, 0.4) url('{% static 'img\bg\bg1.png' %}' ) center center / cover no-repeat; width: 100%; min-height: 100px;">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="position:absolute; font-size: larger; background: rgba(0, 0, 0, 0.4) url('{% static 'img\bg\bg1.png' %}' ) center center / cover no-repeat; width: 100%; min-height: 200px;">
         <a href="\"><img class="navbar-brand" src="{% static 'img/Logos/final_logo.png' %}" height="100"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -96,6 +96,16 @@
                 </li>
             </ul>
 
+            <div class="ml-auto" style="position:absolute; bottom:10px; right:10px">
+                <form class="form-inline">
+                    <div class="input-group">
+                        <input type="search" class="form-control" placeholder="Search">
+                        <div class="input-group-append">
+                            <button class="btn btn-secondary" type="button"><i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     </nav>
 
@@ -103,41 +113,10 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-2" style="height: auto; background-color: #f1f1f1;" id="demo">
-                <div class="row">
-                    <div class="col-sm mt-2">
-                        <label class="sr-only" for="inlineFormInputGroup">Search</label>
-                        <div class="input-group mb-2">
-                            <input type="search" class="form-control" id="inlineFormInputGroup" placeholder="Search">
-                            <div class="input-group-append">
-                                <button class="btn btn-secondary" type="button"><i class="fa fa-search"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                
-            </div>
-            <div class="col-sm-10">
+            <div class="col-sm-12">
                 {% block pagecontent %} {% endblock pagecontent %}
             </div>
         </div>
-
-        <!-- pagination -->
-        <nav aria-label="Page navigation example">
-            <ul class="pagination justify-content-end">
-                <li class="page-item">
-                    <a class="page-link" href="#" tabindex="-1">Previous</a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">
-                    <a class="page-link" href="#">Next</a>
-                </li>
-            </ul>
-        </nav>
-
     </div>
 
 

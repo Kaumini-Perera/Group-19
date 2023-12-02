@@ -1,0 +1,66 @@
+{% extends 'Customer_only_navbar_Loggedin.html' %}
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Previously Rented Vehicles{% endblock %}</title>
+</head>
+
+<body>
+    {% block name %}{{ customer.customer_firstname }}{% endblock %}
+    {% block pagecontent %}
+    {% if PreviousRentals %}
+    <h1 class="display-3" style="text-align: center;">Previously Rented Vehicles</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Vehicle</th>
+                <th scope="col">Booking Date</th>
+                <th scope="col">Return Date</th>
+                <th scope="col">Price (per day)</th>
+                <th scope="col">Number of Days</th>
+                <th scope="col">Total Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for prev_rental in PreviousRentals %}
+            <tr>
+                <th scope="row">{{ forloop.counter }}</th>
+                {% for veh in Vehicles %}
+                {% if veh.Vehicle_license_plate == prev_rental.Vehicle_license_plate %}
+                <td>{{ veh.Vehicle_name }}</td>
+                {% endif %}
+                {% endfor %}
+                <td>{{ prev_rental.RentVehicle_Date_of_Booking }}</td>
+                <td>{{ prev_rental.RentVehicle_Date_of_Return }}</td>
+                {% for veh in Vehicles %}
+                {% if veh.Vehicle_license_plate == prev_rental.Vehicle_license_plate %}
+                <td>{{ veh.Vehicle_price }}</td>
+                {% endif %}
+                {% endfor %}
+                <td>{{ prev_rental.Total_days }}</td>
+                <td>{{ prev_rental.RentVehicle_Total_amount }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <div class="container mt-5">
+        <div class="alert alert-warning" role="alert">
+            <h4 class="alert-heading">NO PREVIOUS RENTALS</h4>
+            <p>You haven't rented any vehicles in the past.</p>
+            <hr>
+            <p class="mb-0">Explore our vehicles and make your first rental today!
+                <a href="/">Click here</a>
+            </p>
+        </div>
+    </div>
+    {% endif %}
+    {% endblock pagecontent %}
+</body>
+
+</html>

@@ -210,6 +210,33 @@ def SentRequests(request):
         Message = "You haven't rented any vehicle yet!!"
         return render(request,'SentRequests.html',{'customer':customer,'rentvehicle':rentvehicle,'Message':Message})
 
+def get_previous_rentals(customer_email):
+    return RentVehicle.objects.filter(customer_email=customer_email)
+
+def PreviouslyRentedVehicles(request):
+    if 'user_email' not in request.session:
+        return redirect('/signin/')
+
+    customer_email = request.session.get('user_email')
+    customer = Customer.objects.get(customer_email=customer_email)
+
+    previous_rentals = get_previous_rentals(customer_email)
+
+    if previous_rentals.exists():
+        vehicles = Vehicle.objects.all()
+        return render(request, 'previous_rentals.html', {
+            'customer': customer,
+            'previous_rentals': previous_rentals,
+            'vehicles': vehicles,
+        })
+    else:
+        Message = "You haven't rented any vehicle in the past!!"
+        return render(request, 'previous_rentals.html', {
+            'customer': customer,
+            'previous_rentals': previous_rentals,
+            'Message': Message,
+        })
+
 def about_us(request):
     return HttpResponse('About Us')
     
