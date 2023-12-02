@@ -1,34 +1,35 @@
-{%extends 'Only_owner_navbar.html'%} {% load static %}
+{% extends 'Only_owner_navbar.html' %} 
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
-    <title>{% block title %}Profile {% endblock %}</title>
-  </head>
-
-  <body>
-    {% block name %}{{owner.Owner_firstname}}{%endblock%} {% block pagecontent%}
-
-    <h3 class="display-4 p-1" style="text-align: center; background-color:gainsboro;">Customer Analysis</h3>
-
+    <title>{% block title %}Profile{% endblock %}</title>
+</head>
+<body>
+    {% block name %}{{owner.Owner_firstname}}{% endblock %}
+    {% block pagecontent %}
     <div class="container p-5">
-        <p class="lead"><strong>Customer Gender</strong></p>
-        <img src = "data:image/png;base64,{{cust_gender}}"/>
-        <hr><hr>
-        <p class="lead"><strong>Customer Rent Requests</strong></p>
-        <img src = "data:image/png;base64,{{cust_rent_request}}"/>
+        <div class="row">
+            <div class="col-md-6">
+              <h3 class="display-4 p-1" style="text-align: center; background-color:gainsboro;"><b>Vehicle Analysis</b></h3>
+                <p class="lead"><strong>Vehicle Type</strong></p>
+                <img src="data:image/png;base64,{{v_type}}" style="width: 600px; height: 400px;" />
+                <hr><hr>
+                <p class="lead"><strong>Vehicle Rent Requests</strong></p>
+                <img src="data:image/png;base64,{{v_rent_request}}" style="width: 600px; height: 400px;" />
+            </div>
+            <div class="col-md-6">
+              <h3 class="display-4 p-1" style="text-align: center; background-color:gainsboro;"><b>Customer Analysis</b></h3>
+                <p class="lead"><strong>Customer Gender</strong></p>
+                <img src="data:image/png;base64,{{cust_gender}}" style="width: 600px; height: 400px;" />
+                <hr><hr>
+                <p class="lead"><strong>Customer Rent Requests</strong></p>
+                <img src="data:image/png;base64,{{cust_rent_request}}" style="width: 600px; height: 400px;" />
+            </div>
+        </div>
     </div>
-
-    <h3 class="display-4 p-1" style="text-align: center; background-color:gainsboro;">Vehicle Analysis</h3>
-
-    <div class="container p-5">
-        <p class="lead"><strong>Vehicle Type</strong></p>
-        <img src = "data:image/png;base64,{{v_type}}"/>
-        <hr><hr>
-        <p class="lead"><strong>Vehicle Rent Requests</strong></p>
-        <img src = "data:image/png;base64,{{v_rent_request}}"/>
-    </div>
-
     {% endblock pagecontent %}
-  </body>
+</body>
 </html>
