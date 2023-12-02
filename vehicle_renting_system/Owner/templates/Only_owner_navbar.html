@@ -20,39 +20,44 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/owner.css' %}">
     <script src="{% static 'js/customer.js' %}" type="text/javascript"></script>
 
+    <style>
+        body {
+            padding-top: 300px; 
+        }
+    </style>
 </head>
 
 <body>
-    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark" style="font-size: large;" aria-label="" aria-labbelledby="">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark" style="position:absolute; font-size: larger; background: rgba(0, 0, 0, 0.4) url('{% static 'img\bg\bg1.png' %}' ) center center / cover no-repeat; width: 100%; min-height: 300px;">
         <a href="/Owner"><img class="navbar-brand" src="{% static 'img/Logos/final_logo.png' %}" height="50"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
+ 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="/Owner" style="color: #f1f1f1;">Home</a>
+                    <a class="nav-link" href="/Owner" style="color: #100e0e;"><b>Home</b></a>
                 </li>
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" style="color: #f1f1f1;" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Your Rentals
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" style="color: #0c0a0a;" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <b>Your Rentals</b>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/Owner/SentRequests">Sent Requests</a>
-                        <a class="dropdown-item" href="#">Previous Rentals</a>
+                        <a class="dropdown-item" href="/Owner/SentRequests"><b>Sent Requests</b></a>
+                        <a class="dropdown-item" href="#"><b>Previous Rentals</b></a>
                     </div>
                 </li>
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" style="color: #f1f1f1;" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Customer's Rentals <span class="badge badge-warning">{{no_of_pending_request}}</span>
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" style="color: #0d0a0a;" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <b>Customer's Rentals</b><span class="badge badge-warning">{{no_of_pending_request}}</span>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/Owner/RentRequest">Rent Requests <span class="badge badge-warning mx-2">{{no_of_pending_request}}</span></a>
-                        <a class="dropdown-item" href="#">Rental History</a>
-                        <a class="dropdown-item" href="/Owner/AllCustomers">View All Customers</a>
+                        <a class="dropdown-item" href="/Owner/RentRequest"><b>Rent Requests</b> <span class="badge badge-warning mx-2">{{no_of_pending_request}}</span></a>
+                        <a class="dropdown-item" href="#"><b>Rental History</b></a>
+                        <a class="dropdown-item" href="/Owner/AllCustomers"><b>View All Customers</b></a>
                     </div>
                 </li>
 
@@ -67,34 +72,43 @@
                 </li>
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" style="color: #f1f1f1;" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Vehicles
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" style="color: #090707;" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <b>Vehicles</b>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/Owner/UploadVehicle">Upload Vehicle</a>
-                        <a class="dropdown-item" href="/Owner/AllVehicles">View All Vehicles</a>
+                        <a class="dropdown-item" href="/Owner/UploadVehicle"><b>Upload Vehicle</b></a>
+                        <a class="dropdown-item" href="/Owner/AllVehicles"><b>View All Vehicles</b></a>
                     </div>
                 </li>
 
                 <li class="nav-item active">
                     <a class="nav-link" href="/Owner/ViewAnalysis" style="color: #f1f1f1;">View Analysis</a>
                 </li>
-
             </ul>
 
             <ul class="navbar-nav justify-content-end">
                 <li class="nav-item">
-                    <a class="nav-link" href="/Owner/Profile" style="color: #f1f1f1;" title="Your Profile">
-                        Hello! {% block name %}{%endblock%}</a>
+                    <a class="nav-link" href="/Owner/Profile" style="color: #0f0d0d;" title="Your Profile">
+                        <b>Hello! {% block name %}{%endblock%}</b></a>
                 </li>
             </ul>
 
             <ul class="navbar-nav justify-content-end">
                 <li class="nav-item">
-                    <a class="nav-link" href="/Logout" style="color: #f1f1f1;">Logout</a>
+                    <a class="nav-link" href="/Logout" style="color: #110e0e;"><b>Logout</b></a>
                 </li>
             </ul>
-
+            
+            <div class="ml-auto" style="position:absolute; bottom:10px; right:10px">
+                <form class="form-inline">
+                    <div class="input-group">
+                        <input type="search" class="form-control" placeholder="Search">
+                        <div class="input-group-append">
+                            <button class="btn btn-secondary" type="button"><i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     </nav>
 
