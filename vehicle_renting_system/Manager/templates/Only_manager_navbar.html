@@ -28,7 +28,7 @@
 </head>
 
 <body>
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark" style="font-size: larger; background: rgba(0, 0, 0, 0.4) url('{% static 'img\bg\bg1.png' %}' ) center center / cover no-repeat; width: 100%; min-height: 300px;">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark" style="position:absolute; font-size: larger; background: rgba(0, 0, 0, 0.4) url('{% static 'img\bg\bg1.png' %}' ) center center / cover no-repeat; width: 100%; min-height: 300px;">
         <a href="/Manager"><img class="navbar-brand" src="{% static 'img/Logos/final_logo.png' %}" height="50"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -42,17 +42,17 @@
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" style="color: #0c0a0a;" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Your Rentals
+                        <b>Your Rentals</b>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="/Manager/SentRequests"><b>Sent Requests</b></a>
-                        <a class="dropdown-item" href="#">Previous Rentals</a>
+                        <a class="dropdown-item" href="#"><b>Previous Rentals</b></a>
                     </div>
                 </li>
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" style="color: #0d0a0a;" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Customer's Rentals <span class="badge badge-warning">{{no_of_pending_request}}</span>
+                        <b>Customer's Rentals</b><span class="badge badge-warning">{{no_of_pending_request}}</span>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="/Manager/RentRequest"><b>Rent Requests</b> <span class="badge badge-warning mx-2">{{no_of_pending_request}}</span></a>
@@ -63,7 +63,7 @@
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" style="color: #090707;" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Vehicles
+                        <b>Vehicles</b>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="/Manager/UploadVehicle"><b>Upload Vehicle</b></a>
@@ -76,13 +76,13 @@
             <ul class="navbar-nav justify-content-end">
                 <li class="nav-item">
                     <a class="nav-link" href="/Manager/Profile" style="color: #0f0d0d;" title="Your Profile">
-                        Hello! {% block name %}{%endblock%}</a>
+                        <b>Hello! {% block name %}{%endblock%}</b></a>
                 </li>
             </ul>
 
             <ul class="navbar-nav justify-content-end">
                 <li class="nav-item">
-                    <a class="nav-link" href="/Logout" style="color: #110e0e;">Logout</a>
+                    <a class="nav-link" href="/Logout" style="color: #110e0e;"><b>Logout</b></a>
                 </li>
             </ul>
 
