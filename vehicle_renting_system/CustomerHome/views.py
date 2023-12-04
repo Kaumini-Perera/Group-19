@@ -250,4 +250,30 @@ def vehicle_list(request, Vehicle_type=None):
     else:
         vehicles = Vehicle.objects.all()
         print(vehicles)
+    return render(request, 'vehicle_list.html', {'vehicles': vehicles,})
+
+def vehicle_list_by_company(request, company_name=None):
+    if company_name:
+        vehicles = Vehicle.objects.filter(Vehicle_company=company_name)
+        print(vehicles)
+    else:
+        vehicles = Vehicle.objects.all()
+        print(vehicles)
     return render(request, 'vehicle_list.html', {'vehicles': vehicles})
+
+def vehicle_list_by_price(request, price_range=None):
+    if price_range == 'Below Rs.10000':
+        vehicles = Vehicle.objects.filter(Vehicle_price__lt=10000)
+    elif price_range == 'Between Rs.10000 and Rs.20000':
+        vehicles = Vehicle.objects.filter(Vehicle_price__range=(10000, 20000))
+    elif price_range == 'Above Rs.20000':
+        vehicles = Vehicle.objects.filter(Vehicle_price__gt=20000)
+    else:
+        vehicles = Vehicle.objects.all()
+
+    return render(request, 'vehicle_list.html', {'vehicles': vehicles})
+
+
+
+
+

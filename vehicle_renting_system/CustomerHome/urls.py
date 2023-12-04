@@ -24,7 +24,9 @@ urlpatterns = [
     path('Manager/',include("Manager.urls")),
     path('Vehicles/', views.vehicle_list, name='vehicle_list'),
     path('Vehicles/<str:Vehicle_type>/', views.vehicle_list, name='vehicle_list_by_type'),
-]
+    path('vehicles/company/<str:company_name>/', views.vehicle_list_by_company, name='vehicle_list_by_company'),
+    path('vehicles/by-price/<str:price_range>/', views.vehicle_list_by_price, name='vehicle_list_by_price')
+]    
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL ,document_root=settings.MEDIA_ROOT)

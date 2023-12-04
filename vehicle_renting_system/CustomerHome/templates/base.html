@@ -54,28 +54,28 @@
                             </div>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="CompanyDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #060606;"><b>Company</b></a>
+                        <a class="nav-link dropdown-toggle" href="{% url 'vehicle_list' %}" id="CompanyDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #060606;"><b>Company</b></a>
                             <div class="dropdown-menu" aria-labelledby="CompanyDropdown">
-                                <a class="dropdown-item" href="#">Suzuki</a>
-                                <a class="dropdown-item" href="#">Audi</a>
-                                <a class="dropdown-item" href="#">Toyota</a>
-                                <a class="dropdown-item" href="#">Tata</a>
-                                <a class="dropdown-item" href="#">Mercedez Benz</a>
-                                <a class="dropdown-item" href="#">Yamaha</a>
-                                <a class="dropdown-item" href="#">Mitsubishi</a>
-                                <a class="dropdown-item" href="#">Royal Enfield</a>
-                                <a class="dropdown-item" href="#">Mazda</a>
-                                <a class="dropdown-item" href="#">Bajaj</a>
-                                <a class="dropdown-item" href="#">Land Rover</a>
-                                <a class="dropdown-item" href="#">BMW</a>
+                                <a class="dropdown-item" href="{% url 'vehicle_list_by_company' 'Suzuki' %}">Suzuki</a>
+                                <a class="dropdown-item" href="{% url 'vehicle_list_by_company' 'Audi' %}">Audi</a>
+                                <a class="dropdown-item" href="{% url 'vehicle_list_by_company' 'Toyota' %}">Toyota</a>
+                                <a class="dropdown-item" href="{% url 'vehicle_list_by_company' 'Tata' %}">Tata</a>
+                                <a class="dropdown-item" href="{% url 'vehicle_list_by_company' 'MERCEDES-BENZ' %}">MERCEDES-BENZ</a>
+                                <a class="dropdown-item" href="{% url 'vehicle_list_by_company' 'Yamaha' %}">Yamaha</a>
+                                <a class="dropdown-item" href="{% url 'vehicle_list_by_company' 'Mitsubishi' %}">Mitsubishi</a>
+                                <a class="dropdown-item" href="{% url 'vehicle_list_by_company' 'Royal Enfield' %}">Royal Enfield</a>
+                                <a class="dropdown-item" href="{% url 'vehicle_list_by_company' 'Mazda' %}">Mazda</a>
+                                <a class="dropdown-item" href="{% url 'vehicle_list_by_company' 'Bajaj' %}">Bajaj</a>
+                                <a class="dropdown-item" href="{% url 'vehicle_list_by_company' 'Land Rover' %}">Land Rover</a>
+                                <a class="dropdown-item" href="{% url 'vehicle_list_by_company' 'BMW' %}">BMW</a>
                             </div>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="PriceDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #060606;"><b>Price Range</b></a>
+                        <a class="nav-link dropdown-toggle" href="{% url 'vehicle_list' %}" id="PriceDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #060606;"><b>Price Range</b></a>
                             <div class="dropdown-menu" aria-labelledby="PriceDropdown">
-                                <a class="dropdown-item" href="#">Below Rs.10000</a>
-                                <a class="dropdown-item" href="#">Between Rs.10000 and Rs.20000</a>
-                                <a class="dropdown-item" href="#">Above Rs.20000</a>
+                                <a class="dropdown-item" href="{% url 'vehicle_list_by_price' 'Below Rs.10000' %}">Below Rs.10000</a>
+                                <a class="dropdown-item" href="{% url 'vehicle_list_by_price' 'Between Rs.10000 and Rs.20000' %}">Between Rs.10000 and Rs.20000</a>
+                                <a class="dropdown-item" href="{% url 'vehicle_list_by_price' 'Above Rs.20000' %}">Above Rs.20000</a>
                             </div>
                     </li>
                 </ul>
