@@ -39,12 +39,16 @@ a:hover {
     right: 0;
     margin: auto;
     width: 0%;
-    content: '.';
-    color: transparent;
-    background: orange;
+    content: '';
+    color:transparent;
+    background: transparent;
     height: 1px;
 }
 
 .navbar-nav a:hover:after {
     width: 100%;
+}
+
+.navbar-nav .dropdown-menu a {
+    line-height: 1.5;
 }
