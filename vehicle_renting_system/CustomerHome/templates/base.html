@@ -42,15 +42,15 @@
                     </li>
                 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="Vehicles/" id="vehiclesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #060606;"><b>Vehicles</b></a>
+                        <a class="nav-link dropdown-toggle" href="{% url 'vehicle_list' %}" id="vehiclesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #060606;"><b>Vehicles</b></a>
                             <div class="dropdown-menu" aria-labelledby="vehiclesDropdown">
-                                <a class="dropdown-item" href="#">Car</a>
-                                <a class="dropdown-item" href="#">SUV</a>
-                                <a class="dropdown-item" href="#">Bike</a>
-                                <a class="dropdown-item" href="#">Bus</a>
-                                <a class="dropdown-item" href="#">Van</a>
-                                <a class="dropdown-item" href="#">Three-wheel</a>
-                                <a class="dropdown-item" href="#">Truck</a>
+                                <a class="dropdown-item" href="{% url 'vehicle_list_by_type' 'Car' %}">Car</a>
+                                <a class="dropdown-item" href="{% url 'vehicle_list_by_type' 'SUV' %}">SUV</a>
+                                <a class="dropdown-item" href="{% url 'vehicle_list_by_type' 'Bike' %}">Bike</a>
+                                <a class="dropdown-item" href="{% url 'vehicle_list_by_type' 'Bus' %}">Bus</a>
+                                <a class="dropdown-item" href="{% url 'vehicle_list_by_type' 'Van' %}">Van</a>
+                                <a class="dropdown-item" href="{% url 'vehicle_list_by_type' 'Three-Wheel' %}">Three-Wheel</a>
+                                <a class="dropdown-item" href="{% url 'vehicle_list_by_type' 'Truck' %}">Truck</a>
                             </div>
                     </li>
                     <li class="nav-item dropdown">
