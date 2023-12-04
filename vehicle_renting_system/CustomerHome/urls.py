@@ -12,7 +12,6 @@ urlpatterns = [
     path('register/',views.register,name="Register"),
     path('Profile/',views.Profile,name="Profile"),
     path('about/', views.about_us, name="AboutUs"),
-    path('search/', views.search, name="Search"),
     path('LoginAuthentication/',views.LoginAuthentication,name="LoginAuthentication"),
     path('RegisterCustomer/',views.RegisterCustomer,name="RegisterCustomer"),
     path('VehicleDetails/<str:Vehicle_license_plate>/',views.showdetails,name="VehicleDetails"),
