@@ -157,3 +157,7 @@ def count_pending_rent_request():
         if rv.request_status == "Pending":
             no_of_pending_request+=1
     return no_of_pending_request
+
+def rentals(request):
+    rentvehicles = RentVehicle.objects.all()
+    return render(request, 'Manager_all_rentals.html', {'rentvehicles': rentvehicles})
