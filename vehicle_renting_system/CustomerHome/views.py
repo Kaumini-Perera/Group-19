@@ -242,3 +242,12 @@ def about_us(request):
 
 def search(request):
     return HttpResponse('Search')
+
+def vehicle_list(request, Vehicle_type=None):
+    if Vehicle_type:
+        vehicles = Vehicle.objects.filter(Vehicle_type=Vehicle_type)
+        print(vehicles)
+    else:
+        vehicles = Vehicle.objects.all()
+        print(vehicles)
+    return render(request, 'vehicle_list.html', {'vehicles': vehicles})

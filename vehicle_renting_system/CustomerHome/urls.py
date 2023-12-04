@@ -21,7 +21,9 @@ urlpatterns = [
     path('previous_rentals/',views.PreviouslyRentedVehicles,name="previous_rentals"),
     path('RentVehicle',include("RentVehicle.urls")),
     path('Owner/',include("Owner.urls")),
-    path('Manager/',include("Manager.urls"))
+    path('Manager/',include("Manager.urls")),
+    path('Vehicles/', views.vehicle_list, name='vehicle_list'),
+    path('Vehicles/<str:Vehicle_type>/', views.vehicle_list, name='vehicle_list_by_type'),
 ]
 
 if settings.DEBUG:
