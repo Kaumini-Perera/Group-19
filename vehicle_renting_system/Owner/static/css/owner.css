@@ -42,10 +42,23 @@ a:hover {
     right: 0;
     margin: auto;
     width: 0%;
-    content: '.';
+    content: '';
     color: transparent;
-    background: orange;
+    background: transparent;
     height: 1px;
+}
+
+.dropdown-toggle::after {
+    position: absolute !important;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 0%;
+    content: '';
+    color: transparent;
+    background: transparent;
+    height: 1px !important;
 }
 
 .navbar-nav a:hover:after {
