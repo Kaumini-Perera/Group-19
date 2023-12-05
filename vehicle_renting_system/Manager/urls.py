@@ -19,7 +19,6 @@ urlpatterns = [
     path('CheckAvailability/<str:Vehicle_license_plate>/',views.CheckAvailability,name="ManagerCheckAvailability"),
     path('RentRequest/',views.RentRequest,name="RentRequest"),
     path('SentRequests/',views.SentRequests,name="SentRequests"),
-    path('previous_rentals/',views.PreviouslyRentedVehicles,name="previous_rentals"),
     path('RentalHistory/',views.rentals,name="rentals")
 ]
 
