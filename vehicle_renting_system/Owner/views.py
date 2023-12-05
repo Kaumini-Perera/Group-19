@@ -234,24 +234,6 @@ def SentRequests(request):
         return render(request,'Owner_SentRequests.html',{'owner':owner,'rentvehicle':rentvehicle,\
                                                          'Message':Message,'no_of_pending_request':no_of_pending_request})
 
-def PreviouslyRentedVehicles(request):
-    customer_email = request.session.get('user_email')
-    previous_rentals = RentVehicle.objects.filter(customer_email=customer_email)
-
-    if previous_rentals.exists():
-        print(previous_rentals)
-        return render(request, 'previous_rentals.html', {
-            'customer': customer_email,
-            'previous_rentals': previous_rentals,
-        })
-    else:
-        message = "You haven't rented any vehicle in the past!!"
-        print(message)
-        return render(request, 'previous_rentals.html', {
-            'customer': customer_email,
-            'message': message,
-        })    
-
 def DeleteManager(request):
     if('user_email' not in request.session):
         return redirect('/signin/')
