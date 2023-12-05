@@ -12,6 +12,7 @@
 <body>
     {% block name %}{{ customer.customer_firstname }}{% endblock %}
     {% block pagecontent %}
+    <h1 class="display-3" style="text-align: center;">Previous Rentals</h1>
     {% if previous_rentals %}
         <table class="table table-bordered">
             <thead>
