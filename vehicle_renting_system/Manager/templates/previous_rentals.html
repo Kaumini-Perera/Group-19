@@ -1,0 +1,57 @@
+{%extends 'Only_manager_navbar.html'%}
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Previously Rented Vehicles{% endblock %}</title>
+</head>
+
+<body>
+    {% block name %}{{ customer.customer_firstname }}{% endblock %}
+    {% block pagecontent %}
+    {% if previous_rentals %}
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Customer Email</th>
+                    <th>Vehicle License Plate</th>
+                    <th>Date of Booking</th>
+                    <th>Date of Return</th>
+                    <th>Total Days</th>
+                    <th>Total Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for rental in previous_rentals %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ rental.customer_email }}</td>
+                        <td>{{ rental.Vehicle_license_plate }}</td>
+                        <td>{{ rental.RentVehicle_Date_of_Booking }}</td>
+                        <td>{{ rental.RentVehicle_Date_of_Return }}</td>
+                        <td>{{ rental.Total_days }}</td>
+                        <td>{{ rental.RentVehicle_Total_amount }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <div class="container mt-5">
+            <div class="alert alert-warning" role="alert">
+                <h4 class="alert-heading">NO PREVIOUS RENTALS</h4>
+                <p>You haven't rented any vehicles in the past.</p>
+                <hr>
+                <p class="mb-0">Explore our vehicles and make your first rental today!
+                    <a href="/">Click here</a>
+                </p>
+            </div>
+        </div>
+    {% endif %}
+    {% endblock pagecontent %}
+</body>
+
+</html>

@@ -157,3 +157,21 @@ def count_pending_rent_request():
         if rv.request_status == "Pending":
             no_of_pending_request+=1
     return no_of_pending_request
+
+def PreviouslyRentedVehicles(request):
+    customer_email = request.session.get('user_email')
+    previous_rentals = RentVehicle.objects.filter(customer_email=customer_email)
+
+    if previous_rentals.exists():
+        print(previous_rentals)
+        return render(request, 'previous_rentals.html', {
+            'customer': customer_email,
+            'previous_rentals': previous_rentals,
+        })
+    else:
+        message = "You haven't rented any vehicle in the past!!"
+        print(message)
+        return render(request, 'previous_rentals.html', {
+            'customer': customer_email,
+            'message': message,
+        })
