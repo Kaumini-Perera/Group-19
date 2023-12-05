@@ -175,3 +175,8 @@ def PreviouslyRentedVehicles(request):
             'customer': customer_email,
             'message': message,
         })
+
+def rentals(request):
+    rentvehicles = RentVehicle.objects.all()
+    return render(request, 'Manager_all_rentals.html', {'rentvehicles': rentvehicles})
+

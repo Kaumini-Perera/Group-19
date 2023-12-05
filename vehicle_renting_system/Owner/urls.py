@@ -27,6 +27,7 @@ urlpatterns = [
     path('CustomerProfile/<str:customer_email>/',views.Customer_Profile,name="CustomerProfile"),
     path('Vehicle/UploadVehicle',veh_views.upload_vehicle,name="UploadVehicle"),
     path('ViewAnalysis/',views.ViewAnalysis, name="ViewAnalysis"),
+    path('RentalHistory/',views.rentals,name="rentals")
 ]
 
 if settings.DEBUG:

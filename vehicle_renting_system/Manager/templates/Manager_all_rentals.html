@@ -1,0 +1,54 @@
+{% extends 'Manager_base.html' %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Rented Vehicles Table{% endblock %}</title>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/manager.css' %}">
+
+    <style>
+        .table-cell-blue {
+            background-color: #5bc0de; /* Light blue color */
+        }
+    </style>
+</head>
+
+<body>
+    {% block pagecontent %} 
+    <p style="text-align: center; font-size: 60px;">Rental History</p>
+        <table class="table caption-top">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Customer email</th>
+                    <th>Vehicle License Plate</th>
+                    <th>Date of Booking</th>
+                    <th>Date of Return</th>
+                    <th>Total Days</th>
+                    <th>Total Amount</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for rentVehicle in rentvehicles %}
+                    <tr>
+                        <td>{{ rentVehicle.id }}</td>
+                        <td>{{ rentVehicle.customer_email }}</td>
+                        <td>{{ rentVehicle.Vehicle_license_plate }}</td>
+                        <td>{{ rentVehicle.RentVehicle_Date_of_Booking }}</td>
+                        <td>{{ rentVehicle.RentVehicle_Date_of_Return }}</td>
+                        <td>{{ rentVehicle.Total_days }}</td>
+                        <td>{{ rentVehicle.RentVehicle_Total_amount }}</td>
+                        <td>{{ rentVehicle.request_status }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endblock pagecontent %}
+</body>
+</html>
